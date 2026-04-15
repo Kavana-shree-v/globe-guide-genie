@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { StateData } from "@/data/travelData";
 import TripPlanner from "./TripPlanner";
+import BudgetCalculator from "./BudgetCalculator";
+import LocalFoodExplorer from "./LocalFoodExplorer";
 
 interface StateDetailProps {
   state: StateData;
@@ -14,13 +16,15 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const StateDetail = ({ state, onBack }: StateDetailProps) => {
-  const [activeTab, setActiveTab] = useState<"places" | "hotels" | "planner" | "tips">("places");
+  const [activeTab, setActiveTab] = useState<"places" | "hotels" | "budget" | "food" | "planner" | "tips">("places");
 
   const tabs = [
-    { key: "places" as const, label: "🏛 Places to Visit" },
+    { key: "places" as const, label: "🏛 Places" },
     { key: "hotels" as const, label: "🏨 Hotels" },
-    { key: "planner" as const, label: "📅 Trip Planner" },
-    { key: "tips" as const, label: "💡 Tips & Info" },
+    { key: "budget" as const, label: "💰 Budget" },
+    { key: "food" as const, label: "🍽 Food" },
+    { key: "planner" as const, label: "📅 Planner" },
+    { key: "tips" as const, label: "💡 Tips" },
   ];
 
   return (
@@ -114,6 +118,12 @@ const StateDetail = ({ state, onBack }: StateDetailProps) => {
             ))}
           </div>
         )}
+
+        {/* Budget Tab */}
+        {activeTab === "budget" && <BudgetCalculator state={state} />}
+
+        {/* Food Tab */}
+        {activeTab === "food" && <LocalFoodExplorer state={state} />}
 
         {/* Planner Tab */}
         {activeTab === "planner" && <TripPlanner state={state} />}
