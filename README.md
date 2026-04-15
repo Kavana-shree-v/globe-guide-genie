@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+project link
 
-TODO: Document your project here
+https://globe-guide-genie.lovable.app
