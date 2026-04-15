@@ -3,6 +3,7 @@ import { states } from "@/data/travelData";
 import HeroSection from "@/components/HeroSection";
 import StateCard from "@/components/StateCard";
 import StateDetail from "@/components/StateDetail";
+import TravelMoodQuiz from "@/components/TravelMoodQuiz";
 
 const Index = () => {
   const [selectedStateId, setSelectedStateId] = useState<string | null>(null);
@@ -38,6 +39,22 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection onExplore={scrollToStates} />
+
+      {/* Travel Mood Quiz */}
+      <section className="max-w-3xl mx-auto px-4 py-16">
+        <div className="text-center mb-8">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-3">
+            🎯 Find Your Perfect Destination
+          </h2>
+          <p className="text-muted-foreground font-body max-w-xl mx-auto">
+            Take our quick quiz and discover which Indian state matches your travel personality
+          </p>
+        </div>
+        <TravelMoodQuiz onSelectState={(id) => {
+          setSelectedStateId(id);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }} />
+      </section>
 
       {/* States Section */}
       <section ref={statesRef} className="max-w-7xl mx-auto px-4 py-16">
