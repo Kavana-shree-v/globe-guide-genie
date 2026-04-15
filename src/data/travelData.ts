@@ -53,6 +53,8 @@ export interface StateData {
   avgTemp: string;
   places: Place[];
   hotels: Hotel[];
+  activities: Activity[];
+  foods: LocalFood[];
   tips: string[];
 }
 
