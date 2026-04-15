@@ -18,8 +18,27 @@ export interface Hotel {
   name: string;
   rating: number;
   priceRange: string;
+  priceMin: number;
+  priceMax: number;
   amenities: string[];
   description: string;
+}
+
+export interface Activity {
+  name: string;
+  cost: number;
+  duration: string;
+  category: "adventure" | "culture" | "nature" | "food" | "wellness";
+  description: string;
+}
+
+export interface LocalFood {
+  name: string;
+  description: string;
+  price: string;
+  spiceLevel: 1 | 2 | 3 | 4 | 5;
+  isVeg: boolean;
+  emoji: string;
 }
 
 export interface StateData {
